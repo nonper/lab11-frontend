@@ -12,6 +12,7 @@ import NProgress from 'nprogress'
 import GStore from '@/store'
 import EventService from '@/services/EventService'
 import OrganizerService from '@/services/OrganizerService.js'
+import AuctionListView from '../views/AuctionListView.vue'
 const routes = [
   {
     path: '/',
@@ -23,6 +24,12 @@ const routes = [
     path: '/about',
     name: 'about',
     component: AboutView
+  },
+  {
+    path: '/auction',
+    name: 'auction',
+    component: AuctionListView,
+    props: (route) => ({ page: parseInt(route.query.page) || 1 })
   },
   {
     path: '/event/:id',
